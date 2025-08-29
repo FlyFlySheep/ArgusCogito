@@ -9,6 +9,9 @@
 │   ├── argfocus.py         # ArgusCogito_focus (bbox生成)
 │   ├── knowledge.py        # Knowledge factory (知识提取/生成)
 │   ├── segment.py          # Sam4Segment (分割模块)
+│   ├── prompt.py           # Prompt (提示词)
+│   ├── qwen_chat.py        # Qwen_chat（与大模型交互）
+│   ├── arglog.py           # Arglog（日志）
 └── requirements.txt        # 依赖库
 ```
 
