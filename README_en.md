@@ -1,19 +1,5 @@
 # ArgusCogito: Chain-of-Thought for Cross-Modal Synergy and Omnidirectional Reasoning in Camouflaged Object Segmentation  
 
-## 📂 Project Structure  
-``` 
-├── main.py                 # Entry point of the program
-├── config/                 # Hydra configuration directory
-│   └── config.yaml         # Main configuration file
-├── src/                    
-│   ├── argfocus.py         # ArgusCogito_focus (bbox generation)
-│   ├── knowledge.py        # Knowledge factory (knowledge extraction/generation)
-│   ├── segment.py          # Sam4Segment (segmentation module)
-└── requirements.txt        # Dependencies
-```  
-
----
-
 ## ⚙️ Environment Requirements  
 - Python >= 3.9  
 - PyTorch >= 2.0 (with GPU support)  
