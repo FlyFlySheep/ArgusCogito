@@ -1,13 +1,14 @@
-# ArgusCogito: Chain-of-Thought for Cross-Modal Synergy and Omnidirectional Reasoning in Camouflaged Object Segmentation
+# ArgusCogito: Chain-of-Thought for Cross-Modal Synergy and Omnidirectional Reasoning in Camouflaged Object Segmentation  
 
-## ⚙️ 环境依赖
+## ⚙️ Environment Requirements  
 - Python >= 3.9  
-- PyTorch >= 2.0 (支持 GPU)  
-- 依赖库：
+- PyTorch >= 2.0 (with GPU support)  
+- Dependencies:  
   ```bash
   pip install -r requirements.txt
-  ```
-  主要依赖：
+  ```  
+
+  Main dependencies:  
   - transformers  
   - peft  
   - Pillow  
@@ -15,14 +16,10 @@
 
 ---
 
-## 🚀 使用方法
+## 🚀 How to use
 
-### 1. 准备输入数据
-- 将 **RGB 图像** 和 **Depth 图像** 放入 `config.yaml` 指定的路径  
-- 支持单张图像或批量处理  
+### Modify the config.yaml
 
-### 2. 修改配置文件
-在 `config/config.yaml` 中设置：
 ```yaml
 image: null  # image to process only
 
@@ -56,7 +53,7 @@ model:
   qwen2_vl_path: # model path
   sam2_ckpt: facebook/sam2.1-hiera-large # dafault path for sam2
   llava_ckpt: # model path
-  sam4mllm_ckpt: /disk4/tan/SAM4MLLM-main/checkpoint/sam4mllm
+  sam4mllm_ckpt: # sam4mllm+ path
 
 
 rounds:
@@ -70,34 +67,36 @@ rgb_image_extention: .jpg
 depth_image_extention: .png
 ```
 
-### 3. 运行
+### 3. Running
 ```bash
 python main.py
 ```
 
-支持单张图像处理：
+Only want to process one image：
 ```bash
 python main.py image=example_001
 ```
 
-## 模型使用 & 下载链接
+## Checkpoints
 
 - `llava-next`：[llava-next](https://huggingface.co/lmms-lab/llama3-llava-next-8b)
 - `sam4mllm+`：[sam4mllm+](https://drive.google.com/drive/folders/1ytEfGRa6bxThTXQn5MLVKKy4jsxxBo6M)
 - `Qwen2.5-VL-7B-Instruct`: [Qwen2.5-VL-7B-Instruct](https://huggingface.co/Qwen/Qwen2.5-VL-7B-Instruct)
-- `sam2.1-hiera-large`: 直接使用 facebook/sam2.1-hiera-large 进行拉取
+- `sam2.1-hiera-large`:  Directly pulled by using command `facebook/sam2.1-hiera-large`
 
-## 引用
+## Acknowledge
 
-本项目使用了以下研究成果，若您在研究中使用本项目，请同时引用原始论文：
+This project borrows some code from [sam4mllm](https://github.com/AI-Application-and-Integration-Lab/SAM4MLLM), thanks for their admiring contributions~!
+
+## Reference
 
 ```bibtex
-@inproceedings{chen2024sam4mllm,
-  title={Sam4mllm: Enhance multi-modal large language model for referring expression segmentation},
-  author={Chen, Yi-Chia and Li, Wei-Hua and Sun, Cheng and Wang, Yu-Chiang Frank and Chen, Chu-Song},
-  booktitle={European Conference on Computer Vision},
-  pages={323--340},
-  year={2024},
-  organization={Springer}
+@misc{tan2025arguscogitochainofthoughtcrossmodalsynergy,
+      title={ArgusCogito: Chain-of-Thought for Cross-Modal Synergy and Omnidirectional Reasoning in Camouflaged Object Segmentation}, 
+      author={Jianwen Tan and Huiyao Zhang and Rui Xiong and Han Zhou and Hongfei Wang and Ye Li},
+      year={2025},
+      eprint={2508.18050},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2508.18050}, 
 }
-
