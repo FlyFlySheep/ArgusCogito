@@ -9,9 +9,6 @@
 │   ├── argfocus.py         # ArgusCogito_focus (bbox生成)
 │   ├── knowledge.py        # Knowledge factory (知识提取/生成)
 │   ├── segment.py          # Sam4Segment (分割模块)
-│   ├── prompt.py           # Prompt (提示词)
-│   ├── qwen_chat.py        # Qwen_chat（与大模型交互）
-│   ├── arglog.py           # Arglog（日志）
 └── requirements.txt        # 依赖库
 ```
 
@@ -96,4 +93,25 @@ python main.py
 ```bash
 python main.py image=example_001
 ```
+
+## 模型使用 & 下载链接
+
+- `llava-next`：[llava-next](https://huggingface.co/lmms-lab/llama3-llava-next-8b)
+- `sam4mllm+`：[sam4mllm+](https://drive.google.com/drive/folders/1ytEfGRa6bxThTXQn5MLVKKy4jsxxBo6M)
+- `Qwen2.5-VL-7B-Instruct`: [Qwen2.5-VL-7B-Instruct](https://huggingface.co/Qwen/Qwen2.5-VL-7B-Instruct)
+- `sam2.1-hiera-large`: 直接使用 facebook/sam2.1-hiera-large 进行拉取
+
+## 引用
+
+本项目使用了以下研究成果，若您在研究中使用本项目，请同时引用原始论文：
+
+```bibtex
+@inproceedings{chen2024sam4mllm,
+  title={Sam4mllm: Enhance multi-modal large language model for referring expression segmentation},
+  author={Chen, Yi-Chia and Li, Wei-Hua and Sun, Cheng and Wang, Yu-Chiang Frank and Chen, Chu-Song},
+  booktitle={European Conference on Computer Vision},
+  pages={323--340},
+  year={2024},
+  organization={Springer}
+}
 
