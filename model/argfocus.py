@@ -1,9 +1,9 @@
 import re, json
 from PIL import Image, ImageDraw
 from omegaconf import DictConfig
-from src.arglog import *
-from src.prompt import *
-from src.qwen_chat import *
+from model.arglog import *
+from model.prompt import *
+from model.qwen_chat import *
 
 class qwen2_5_focus():
 
@@ -57,12 +57,22 @@ class qwen2_5_focus():
             messages.append({"role": "user", "content": knowledge})
 
         messages.append({"role": "user", "content": [{"type": "image", "image": image}]})
-        messages.append({"role": "user", "content": focus_prompt(self.cfg.focus_type)})
+        if self.cfg.dataset == 'camo_plant':
+            messages.append({"role": "user", "content": camo_focus_prompt('camo_plant', self.cfg.focus_type)})
+        elif self.cfg.dataset == 'camo_animal':
+            messages.append({"role": "user", "content": camo_focus_prompt('camo_animal', self.cfg.focus_type)})
+        elif self.cfg.dataset == 'polyp':
+            messages.append({"role": "user", "content": polyp_focus_prompt(self.cfg.focus_type)})
 
         step1_response = self.chat.run_chat_generation(messages, processor, model)
         messages.append({"role": "assistant", "content": step1_response})
 
-        messages.append({"role": "user", "content": focus_prompt('bbox')})
+        if self.cfg.dataset == 'camo_plant':
+            messages.append({"role": "user", "content": camo_focus_prompt('camo_plant', 'bbox')})
+        elif self.cfg.dataset == 'camo_animal':
+            messages.append({"role": "user", "content": camo_focus_prompt('camo_animal', 'bbox')})
+        elif self.cfg.dataset == 'polyp':
+            messages.append({"role": "user", "content": polyp_focus_prompt('bbox')})
         
         result = self.chat.run_chat_generation(messages, processor, model)
         write_log_with_timestamp(self.cfg.output.log_file, f"{basename} Focus result for {self.cfg.focus_type}: {result}") # Log snippet

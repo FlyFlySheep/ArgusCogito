@@ -2,6 +2,8 @@ image: null  # image to process only
 
 # If you specify an image, only this image will be inferred (only basename, no extention)
 
+dataset:  # Name of the dataset used [camo_plant, camo_animal, polyp]
+
 use_knowledge: True
 use_knowledge_origin: False # use the knowledge already have
 use_bboxes_origin: False

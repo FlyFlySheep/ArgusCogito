@@ -6,9 +6,9 @@ import torch
 from peft import PeftModel
 from transformers import AutoProcessor, Qwen2_5_VLForConditionalGeneration
 
-from src.argfocus import *
-from src.knowledge import *
-from src.segment import *
+from model.argfocus import *
+from model.knowledge import *
+from model.segment import *
 
 import hydra
 from omegaconf import DictConfig
